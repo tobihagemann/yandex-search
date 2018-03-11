@@ -7,10 +7,15 @@ async function search(query) {
   try {
     const user = process.env.YANDEX_USER || config.user
     const key = process.env.YANDEX_KEY || config.key
-    const response = await got(`${url}?user=${user}&key=${key}&query=${query}`);
-    return response.body;
+    return await got(url, {
+      query: {
+        user: user,
+        key: key,
+        query: query
+      }
+    })
   } catch (error) {
-    return error.response.body;
+    throw error
   }
 }
 
