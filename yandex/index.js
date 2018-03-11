@@ -1,4 +1,4 @@
-const convert = require('xml-js');
+const convert = require('xml-js')
 const yandexSearch = require('./search')
 
 async function search(req, res) {
@@ -7,12 +7,17 @@ async function search(req, res) {
     const yandexRes = await yandexSearch.search(params.query)
     const xml = yandexRes.body
     const json = convert.xml2js(xml, { compact: true, nativeType: true })
-    res.status(yandexRes.statusCode)
-    return res.send(JSON.stringify(json))
+    return createResponse(res, yandexRes.statusCode, JSON.stringify(json))
   } catch (error) {
-    res.status(error.statusCode || 500)
-    return res.send(error.response.body)
+    return createResponse(res, error.statusCode || 500, error.response.body)
   }
+}
+
+function createResponse(res, status, body) {
+  res.set('Access-Control-Allow-Origin', '*')
+  res.set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+  res.status(status)
+  return res.send(body)
 }
 
 exports.search = search

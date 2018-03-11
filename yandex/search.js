@@ -1,4 +1,4 @@
-const got = require('got');
+const got = require('got')
 const config = require('../config')
 
 const url = 'https://yandex.com/search/xml'
