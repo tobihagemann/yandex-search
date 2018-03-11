@@ -11,7 +11,9 @@ async function search(query) {
       query: {
         user: user,
         key: key,
-        query: query
+        query: query,
+        l10n: 'en',
+        filter: 'none'
       }
     })
   } catch (error) {
