@@ -7,7 +7,7 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tobihagemann/yandex-search-api.git"
+    "url": "https://github.com/tobihagemann/yandex-search.git"
   },
   "dependencies": {
     "express": "^4.16.2",
