@@ -1,4 +1,4 @@
-# Yandex Search Server
+# Yandex Search
 [![Twitter](https://img.shields.io/badge/twitter-@tobihagemann-blue.svg?style=flat)](https://twitter.com/tobihagemann)
 
 Simple server for Yandex XML search that responds as JSON, written in Express.
